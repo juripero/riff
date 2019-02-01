@@ -23,24 +23,3 @@ func (_m *KubectlClient) NamespaceInit(manifests map[string]*core.Manifest, opti
 
 	return r0
 }
-
-// SystemUninstall provides a mock function with given fields: options
-func (_m *KubectlClient) SystemUninstall(options core.SystemUninstallOptions) (bool, error) {
-	ret := _m.Called(options)
-
-	var r0 bool
-	if rf, ok := ret.Get(0).(func(core.SystemUninstallOptions) bool); ok {
-		r0 = rf(options)
-	} else {
-		r0 = ret.Get(0).(bool)
-	}
-
-	var r1 error
-	if rf, ok := ret.Get(1).(func(core.SystemUninstallOptions) error); ok {
-		r1 = rf(options)
-	} else {
-		r1 = ret.Error(1)
-	}
-
-	return r0, r1
-}

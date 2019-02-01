@@ -32,6 +32,7 @@ import (
 
 type Client interface {
 	SystemInstall(manifests map[string]*Manifest, options SystemInstallOptions) (bool, error)
+	SystemUninstall(options SystemUninstallOptions) (bool, error)
 
 	CreateFunction(builder Builder, options CreateFunctionOptions, log io.Writer) (*serving.Service, error)
 	UpdateFunction(builder Builder, options UpdateFunctionOptions, log io.Writer) error

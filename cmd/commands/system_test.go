@@ -153,14 +153,14 @@ var _ = Describe("The riff system install subcommand", func() {
 var _ = Describe("The riff system uninstall subcommand", func() {
 
 	var (
-		client                 core.KubectlClient
-		clientMock             *mocks.KubectlClient
+		client               core.Client
+		clientMock           *mocks.Client
 		systemUninstallCommand *cobra.Command
 	)
 
 	BeforeEach(func() {
-		client = new(mocks.KubectlClient)
-		clientMock = client.(*mocks.KubectlClient)
+		client = new(mocks.Client)
+		clientMock = client.(*mocks.Client)
 		systemUninstallCommand = commands.SystemUninstall(&client)
 	})
 

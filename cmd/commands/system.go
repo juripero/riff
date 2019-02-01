@@ -101,7 +101,7 @@ func SystemInstall(manifests map[string]*core.Manifest, c *core.Client) *cobra.C
 	return command
 }
 
-func SystemUninstall(kc *core.KubectlClient) *cobra.Command {
+func SystemUninstall(c *core.Client) *cobra.Command {
 	options := core.SystemUninstallOptions{}
 
 	command := &cobra.Command{
@@ -111,7 +111,7 @@ func SystemUninstall(kc *core.KubectlClient) *cobra.Command {
 		Example: `  ` + env.Cli.Name + ` system uninstall`,
 		Args:    cobra.ExactArgs(systemUninstallNumberOfArgs),
 		RunE: func(cmd *cobra.Command, args []string) error {
-			complete, err := (*kc).SystemUninstall(options)
+			complete, err := (*c).SystemUninstall(options)
 			if err != nil {
 				return err
 			}
